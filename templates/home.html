@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bhaiwas</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <h1>The Bhaiwas</h1>
+    </div>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-overlay">
+        <div class="flash-content">
+          <span class="close-btn" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+          
+          {% for category, message in messages %}
+            <p class="{{ category }}">
+              {{ message }}
+            </p>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main class="main-content">
+
+    <section class="content-card">
+      <img src="{{ url_for('static', filename='images/Logo.png') }}" 
+           alt="The Bhaiwas Logo" 
+           class="logo">
+      <p>
+        Where sound meets atmosphere.  
+        Late night energy. Clean transitions.  
+        Built for the crowd.
+      </p>
+
+      <div class="image-placeholder">
+        Image placeholder
+      </div>
+
+      <p>
+        From intimate lounges to packed dancefloors.  
+        The Bhaiwas deliver a controlled chaos.
+      </p>
+
+      <div class="image-placeholder">
+        Image placeholder
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="contact-section" id="contact">
+    <h2>Contact</h2>
+
+    <p>Email: <a href="mailto:info@thebhaiwas.nl">info@thebhaiwas.nl</a></p>
+    <p>Instagram: <a href="#">@thebhaiwas</a></p>
+
+    <form class="contact-form" action="/contact" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" rows="4" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </footer>
+
+</body>
+</html>

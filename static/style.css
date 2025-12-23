@@ -1,0 +1,274 @@
+/* --- FONTS IMPORTEREN (Nieuw: Stoere DJ look) --- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@300;400&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root kleuren */
+:root {
+  --black: #0b0b0b;
+  --dark-grey: #121212;
+  --gold: #d4af37;
+  --gold-soft: #bfa233;
+  --white-soft: #f2f2f2;
+}
+
+/* Body */
+body {
+  background-color: var(--black);
+  color: var(--gold);
+  /* Gebruik Montserrat voor leesbaarheid, Oswald voor titels */
+  font-family: 'Montserrat', sans-serif; 
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif; /* Het nieuwe lettertype */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 0; /* Navbar regelt de spacing */
+  color: var(--white-soft);
+}
+
+h2 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+p {
+  color: var(--white-soft);
+  max-width: 650px;
+  margin-bottom: 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--gold-soft);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 2.5rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background-color: var(--gold);
+  color: var(--black);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* Gouden gloed */
+}
+
+/* NAVBAR */
+.navbar {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  background-color: var(--black);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Iets compacter gemaakt */
+  position: sticky; /* Blijft bovenaan plakken */
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  min-height: 80vh; /* Zorgt dat de footer niet omhoog kruipt bij weinig tekst */
+}
+
+/* CONTENT CARD */
+.content-card {
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Tekst centreren */
+  background-color: var(--dark-grey);
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 4px; /* Iets strakker dan 12px */
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.08);
+}
+
+/* LOGO (Binnen de card) */
+.logo {
+  display: block;
+  margin: 0 auto 2rem auto;
+  max-height: 180px;
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+}
+
+/* IMAGE PLACEHOLDER */
+.image-placeholder {
+  width: 100%; /* Vul de breedte van de kaart */
+  margin: 2rem 0;
+  height: 220px;
+  border: 1px dashed rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(212, 175, 55, 0.5);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.2);
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: #080808; /* Iets donkerder dan body */
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #161616;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Als je klikt in een veld */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- NIEUW: SUCCESS MESSAGE POPUP --- */
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Donkere achtergrond */
+    backdrop-filter: blur(5px); /* Chique blur effect */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flash-content {
+    background: var(--dark-grey);
+    border: 1px solid var(--gold);
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.flash-content p.success {
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.flash-content p.error {
+    color: #ff4444;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: #666;
+    cursor: pointer;
+    line-height: 20px;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--white-soft);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobiele aanpassingen */
+@media (max-width: 768px) {
+    .content-card {
+       max-height: 130px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
