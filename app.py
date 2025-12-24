@@ -29,6 +29,14 @@ def home():
 
 @app.route("/contact", methods=["POST"])
 def contact():
+
+    honeypot = request.form.get('honeypot')
+    if honeypot:
+        # Als dit veld is ingevuld, is het een bot!
+        # We doen net alsof het gelukt is, maar sturen niks.
+        print("Bot gevangen! Spam tegengehouden.")
+        return redirect(url_for('home'))
+    
     name = request.form.get("name")
     klant_email = request.form.get("email")
     message_content = request.form.get("message")
